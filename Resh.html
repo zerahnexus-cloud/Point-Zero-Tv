@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Resh | Point Zero Media Hub</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#03142b;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* NAVBAR */
+.navbar{
+    position:fixed;
+    top:0;
+    width:100%;
+    padding:15px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(3,20,43,0.88);
+    backdrop-filter:blur(12px);
+    z-index:1000;
+}
+
+.nav-links{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:white;
+    transition:0.3s;
+    font-weight:500;
+}
+
+.nav-links a:hover{
+    color:#00AEEF;
+}
+
+/* HERO */
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:120px 8% 80px;
+    position:relative;
+    overflow:hidden;
+    background:
+    linear-gradient(rgba(3,20,43,0.82), rgba(3,20,43,0.95)),
+    url('images/Resh.jpg') center center/cover no-repeat;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    width:650px;
+    height:650px;
+    background:radial-gradient(circle, rgba(0,174,239,0.18), transparent 70%);
+    border-radius:50%;
+    animation:pulseGlow 6s infinite;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:1200px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.hero-image img{
+    width:100%;
+    border-radius:25px;
+    object-fit:cover;
+    box-shadow:0 20px 40px rgba(0,0,0,0.5);
+}
+
+.hero-text h1{
+    font-size:5rem;
+    font-weight:800;
+    line-height:1;
+}
+
+.hero-text h1 span{
+    color:#00AEEF;
+}
+
+.genre{
+    margin-top:20px;
+    color:#f5a623;
+    font-weight:600;
+    letter-spacing:1px;
+    font-size:1rem;
+}
+
+.hero-text p{
+    margin-top:25px;
+    line-height:1.9;
+    color:#d5d5d5;
+    font-size:1rem;
+}
+
+.hero-buttons{
+    margin-top:35px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.btn{
+    padding:14px 32px;
+    border-radius:40px;
+    text-decoration:none;
+    font-weight:700;
+    transition:0.3s;
+}
+
+.primary-btn{
+    background:#f5a623;
+    color:black;
+}
+
+.primary-btn:hover{
+    background:#00AEEF;
+    color:white;
+}
+
+.secondary-btn{
+    border:2px solid #00AEEF;
+    color:white;
+}
+
+.secondary-btn:hover{
+    background:#00AEEF;
+}
+
+/* GENERAL SECTION */
+section{
+    padding:90px 8%;
+}
+
+.section-title{
+    text-align:center;
+    font-size:2.7rem;
+    margin-bottom:20px;
+}
+
+.section-subtitle{
+    text-align:center;
+    color:#cfcfcf;
+    max-width:850px;
+    margin:auto;
+    line-height:1.8;
+}
+
+/* VISION SECTION */
+.vision{
+    background:#061a33;
+}
+
+.vision-grid{
+    margin-top:50px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.vision-card{
+    background:#0b2547;
+    padding:35px 30px;
+    border-radius:20px;
+    transition:0.3s;
+}
+
+.vision-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 10px 30px rgba(0,174,239,0.25);
+}
+
+.vision-card i{
+    font-size:2rem;
+    color:#00AEEF;
+    margin-bottom:20px;
+}
+
+.vision-card h3{
+    margin-bottom:15px;
+    color:#f5a623;
+}
+
+.vision-card p{
+    color:#d5d5d5;
+    line-height:1.8;
+}
+
+/* PROJECTS */
+.projects{
+    text-align:center;
+}
+
+.project-links{
+    margin-top:50px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:30px;
+}
+
+.project-card{
+    background:#0b2547;
+    padding:35px;
+    border-radius:25px;
+    transition:0.3s;
+    text-align:left;
+}
+
+.project-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 10px 30px rgba(0,174,239,0.25);
+}
+
+.project-card h3{
+    color:#00AEEF;
+    margin-bottom:15px;
+}
+
+.project-card p{
+    color:#d5d5d5;
+    line-height:1.8;
+}
+
+.project-btn{
+    display:inline-block;
+    margin-top:25px;
+    padding:12px 24px;
+    background:#00AEEF;
+    color:white;
+    text-decoration:none;
+    border-radius:30px;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.project-btn:hover{
+    background:#f5a623;
+    color:black;
+}
+
+/* VIDEO */
+.video-section{
+    background:#061a33;
+    text-align:center;
+}
+
+.video-container{
+    margin-top:50px;
+    position:relative;
+    width:100%;
+    max-width:1000px;
+    margin-left:auto;
+    margin-right:auto;
+    overflow:hidden;
+    border-radius:25px;
+    box-shadow:0 20px 40px rgba(0,0,0,0.4);
+}
+
+.video-container iframe{
+    width:100%;
+    height:560px;
+    border:none;
+}
+
+/* SOCIALS */
+.socials{
+    text-align:center;
+}
+
+.social-icons{
+    margin-top:40px;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.social-icons a{
+    width:65px;
+    height:65px;
+    border-radius:50%;
+    background:#0b2547;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    font-size:1.5rem;
+    transition:0.3s;
+}
+
+.social-icons a:hover{
+    background:#00AEEF;
+    transform:translateY(-6px);
+}
+
+/* FOOTER */
+footer{
+    background:black;
+    padding:25px;
+    text-align:center;
+    color:#999;
+}
+
+/* ANIMATION */
+@keyframes pulseGlow{
+    0%{
+        transform:scale(1);
+        opacity:0.4;
+    }
+
+    50%{
+        transform:scale(1.2);
+        opacity:0.8;
+    }
+
+    100%{
+        transform:scale(1);
+        opacity:0.4;
+    }
+}
+
+/* TABLET */
+@media(max-width:992px){
+
+    .hero-content{
+        grid-template-columns:1fr;
+    }
+
+    .hero-text{
+        text-align:center;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+    }
+
+    .hero-text h1{
+        font-size:4rem;
+    }
+
+    .video-container iframe{
+        height:500px;
+    }
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+    .navbar{
+        flex-direction:column;
+        gap:15px;
+        padding:15px;
+    }
+
+    .nav-links{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:15px;
+    }
+
+    .hero{
+        padding-top:180px;
+    }
+
+    .hero-text h1{
+        font-size:2.8rem;
+    }
+
+    .section-title{
+        font-size:2rem;
+    }
+
+    .video-container iframe{
+        height:280px;
+    }
+
+    .social-icons a{
+        width:55px;
+        height:55px;
+        font-size:1.2rem;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+
+    <div style="display:flex; align-items:center;">
+        <img 
+        src="images/PointZero.png"
+        alt="Point Zero Logo"
+        style="height:79px; width:auto;">
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Vision</a></li>
+        <li><a href="#">Media</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-image">
+            <img src="images/Resh.jpeg" alt="Resh">
+        </div>
+
+        <div class="hero-text">
+
+            <h1>Re<span>sh</span></h1>
+
+            <div class="genre">
+                CONSCIOUS FUSION • URBAN CULTURE • POSITIVE INFLUENCE
+            </div>
+
+            <p>
+                Resh brings the mindset of the streets,
+                the vision of leadership, and the voice
+                of purpose into the creative industry.
+                Inspired by influential culture shapers
+                like Nipsey Hussle, Meek Mill, and 2Pac,
+                he represents a movement built on impact,
+                strategy, and creative economy.
+            </p>
+
+            <p>
+                As a communication strategist and diverce connectivity expert, Resh uses media, culture,
+                and storytelling to connect people,
+                inspire positivity, and champion
+                conversations around economy, mental health & awareness, peace,
+                and sustainable development.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#projects" class="btn primary-btn">
+                    Explore Projects
+                </a>
+
+                <a href="#video" class="btn secondary-btn">
+                    Watch Vision
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- VISION -->
+<section class="vision">
+
+    <h2 class="section-title">
+        Vision & Influence
+    </h2>
+
+    <p class="section-subtitle">
+        Building creative networks that connect culture,
+        communication, sustainability, and positive social transformation.
+    </p>
+
+    <div class="vision-grid">
+
+        <div class="vision-card">
+            <i class="fa-solid fa-bullhorn"></i>
+            <h3>Strategic Communication</h3>
+            <p>
+                Using media and storytelling to inspire,
+                educate, and create meaningful public engagement.
+            </p>
+        </div>
+
+        <div class="vision-card">
+            <i class="fa-solid fa-people-group"></i>
+            <h3>Youth Empowerment</h3>
+            <p>
+                Creating conversations and opportunities
+                that encourage leadership, peace, and positive identity.
+            </p>
+        </div>
+
+        <div class="vision-card">
+            <i class="fa-solid fa-earth-africa"></i>
+            <h3>Sustainability & SDGs</h3>
+            <p>
+                Connecting environmental action, engineering, innovation, and sustainable community development.
+            </p>
+        </div>
+
+        <div class="vision-card">
+            <i class="fa-solid fa-brain"></i>
+            <h3>Mental Health Advocacy</h3>
+            <p>
+                Promoting mental wellness, awareness,
+                and healthy conversations within the youth culture.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PROJECTS -->
+<section class="projects" id="projects">
+
+    <h2 class="section-title">
+        Featured Projects
+    </h2>
+
+    <p class="section-subtitle">
+        Platforms and initiatives shaping communication,
+        sustainability, and community transformation.
+    </p>
+
+    <div class="project-links">
+
+        <div class="project-card">
+
+            <h3>EcoHub</h3>
+
+            <p>
+                A digital platform for environmental action, engineering services
+                focused on sustainability through waste management, recycling, and innovation.
+            </p>
+
+            <a href="https://ecoclub254-alt.github.io/EcoHub/index.html"
+            target="_blank"
+            class="project-btn">
+                Visit Platform
+            </a>
+
+        </div>
+
+        <div class="project-card">
+
+            <h3>Mtoto Ni Jamii</h3>
+
+            <p>
+                A youth and child wellness initiative
+                promoting awareness around mental health,
+                community responsibility, and social growth.
+            </p>
+
+            <a href="https://ecoclub254-alt.github.io/EcoHub/mtoto%20ni%20jamii/index.html"
+            target="_blank"
+            class="project-btn">
+                Explore Initiative
+            </a>
+
+        </div>
+
+        <div class="project-card">
+
+            <h3>Personal Portfolio</h3>
+
+            <p>
+                A showcase of strategic communication,
+                environmental innovation, systems development,
+                and community-focused digital solutions.
+            </p>
+
+            <a href="https://ecoclub254-alt.github.io/EcoHub/Evans.html"
+            target="_blank"
+            class="project-btn">
+                View Portfolio
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- VIDEO -->
+<section class="video-section" id="video">
+
+    <h2 class="section-title">
+        Vision In Motion
+    </h2>
+
+    <p class="section-subtitle">
+        Watch how Resh is using media, communication,
+        and culture to build meaningful influence and social impact.
+    </p>
+
+    <div class="video-container">
+
+    <iframe
+        width="100%"
+        height="560"
+        src="https://www.youtube.com/embed/1nK01m87lf8"
+        title="Resh Vision Video"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+    </iframe>
+
+</div>
+</section>
+
+<!-- SOCIALS -->
+<section class="socials">
+
+    <h2 class="section-title">
+        Connect With Resh
+    </h2>
+
+    <p class="section-subtitle">
+        Follow the vision across media and digital platforms.
+    </p>
+
+    <div class="social-icons">
+
+        <a href="#">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+
+        <a href="#">
+            <i class="fa-brands fa-linkedin-in"></i>
+        </a>
+
+        <a href="#">
+            <i class="fa-brands fa-youtube"></i>
+        </a>
+
+        <a href="#">
+            <i class="fa-brands fa-tiktok"></i>
+        </a>
+
+        <a href="#">
+            <i class="fa-brands fa-x-twitter"></i>
+        </a>
+
+        <a href="#">
+            <i class="fa-solid fa-globe"></i>
+        </a>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+
+    © 2026 Point Zero Media Hub • All Rights Reserved
+
+</footer>
+
+</body>
+</html>
