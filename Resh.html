@@ -66,12 +66,15 @@ body{
     display:flex;
     align-items:center;
     justify-content:center;
-    padding:120px 8% 80px;
+    padding:140px 8% 90px;
     position:relative;
     overflow:hidden;
+
     background:
-    linear-gradient(rgba(3,20,43,0.82), rgba(3,20,43,0.95)),
-    url('images/Resh.jpg') center center/cover no-repeat;
+    linear-gradient(rgba(3,20,43,0.88), rgba(3,20,43,0.95)),
+    url('images/ZhPz.png') center center/cover no-repeat;
+
+    background-attachment:fixed;
 }
 
 .hero::before{
@@ -82,6 +85,16 @@ body{
     background:radial-gradient(circle, rgba(0,174,239,0.18), transparent 70%);
     border-radius:50%;
     animation:pulseGlow 6s infinite;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+    radial-gradient(circle at top right,
+    rgba(0,174,239,0.15),
+    transparent 75%);
 }
 
 .hero-content{
@@ -160,7 +173,7 @@ body{
     background:#00AEEF;
 }
 
-/* GENERAL SECTION */
+/* GENERAL */
 section{
     padding:90px 8%;
 }
@@ -179,7 +192,7 @@ section{
     line-height:1.8;
 }
 
-/* VISION SECTION */
+/* VISION */
 .vision{
     background:#061a33;
 }
@@ -192,10 +205,11 @@ section{
 }
 
 .vision-card{
-    background:#0b2547;
+    background:linear-gradient(180deg,#0b2547,#081b34);
     padding:35px 30px;
     border-radius:20px;
     transition:0.3s;
+    border:1px solid rgba(255,255,255,0.05);
 }
 
 .vision-card:hover{
@@ -225,45 +239,57 @@ section{
 }
 
 .project-links{
-    margin-top:50px;
+    margin-top:60px;
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
     gap:30px;
+    align-items:stretch;
 }
 
 .project-card{
-    background:#0b2547;
+    background:linear-gradient(180deg,#0b2547,#081b34);
     padding:35px;
     border-radius:25px;
-    transition:0.3s;
+    transition:0.4s;
     text-align:left;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+
+    min-height:320px;
+
+    border:1px solid rgba(255,255,255,0.05);
 }
 
 .project-card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 10px 30px rgba(0,174,239,0.25);
+    transform:translateY(-10px);
+    box-shadow:0 15px 35px rgba(0,174,239,0.25);
 }
 
 .project-card h3{
     color:#00AEEF;
-    margin-bottom:15px;
+    margin-bottom:18px;
+    font-size:1.4rem;
 }
 
 .project-card p{
     color:#d5d5d5;
-    line-height:1.8;
+    line-height:1.9;
+    flex-grow:1;
 }
 
 .project-btn{
     display:inline-block;
-    margin-top:25px;
-    padding:12px 24px;
+    margin-top:30px;
+    padding:14px 24px;
     background:#00AEEF;
     color:white;
     text-decoration:none;
-    border-radius:30px;
+    border-radius:35px;
     font-weight:600;
     transition:0.3s;
+    text-align:center;
 }
 
 .project-btn:hover{
@@ -393,15 +419,41 @@ footer{
     }
 
     .hero{
-        padding-top:180px;
+        background-attachment:scroll;
+        padding-top:190px;
+    }
+
+    .hero-content{
+        gap:35px;
+    }
+
+    .hero-image img{
+        max-height:450px;
+        object-fit:cover;
     }
 
     .hero-text h1{
         font-size:2.8rem;
     }
 
+    .hero-text p{
+        font-size:0.95rem;
+    }
+
     .section-title{
         font-size:2rem;
+    }
+
+    .section-subtitle{
+        font-size:0.95rem;
+    }
+
+    .project-links{
+        grid-template-columns:1fr;
+    }
+
+    .project-card{
+        min-height:auto;
     }
 
     .video-container iframe{
@@ -432,10 +484,10 @@ footer{
 
     <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">Vision</a></li>
-        <li><a href="#">Media</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#vision">Vision</a></li>
+        <li><a href="#video">Media</a></li>
+        <li><a href="#socials">Contact</a></li>
     </ul>
 
 </nav>
@@ -468,11 +520,10 @@ footer{
             </p>
 
             <p>
-                As a communication strategist and diverce connectivity expert, Resh uses media, culture,
-                and storytelling to connect people,
-                inspire positivity, and champion
-                conversations around economy, mental health & awareness, peace,
-                and sustainable development.
+                As a communication strategist and diverce connectivity expert,
+                Resh uses media, culture, and storytelling to connect people,
+                inspire positivity, and champion conversations around economy,
+                mental health awareness, peace, and sustainable development.
             </p>
 
             <div class="hero-buttons">
@@ -494,7 +545,7 @@ footer{
 </section>
 
 <!-- VISION -->
-<section class="vision">
+<section class="vision" id="vision">
 
     <h2 class="section-title">
         Vision & Influence
@@ -529,7 +580,8 @@ footer{
             <i class="fa-solid fa-earth-africa"></i>
             <h3>Sustainability & SDGs</h3>
             <p>
-                Connecting environmental action, engineering, innovation, and sustainable community development.
+                Connecting environmental action, engineering,
+                innovation, and sustainable community development.
             </p>
         </div>
 
@@ -538,7 +590,7 @@ footer{
             <h3>Mental Health Advocacy</h3>
             <p>
                 Promoting mental wellness, awareness,
-                and healthy conversations within the youth culture.
+                and healthy conversations within youth culture.
             </p>
         </div>
 
@@ -562,11 +614,28 @@ footer{
 
         <div class="project-card">
 
+            <h3>Kabila Yetu Ni Kenya</h3>
+
+            <p>
+                Initiative driving peace, love and unity. Visionary leadership — transforming culture beyond division.
+
+            </p>
+
+            <a href="https://kabilayetunikenya.github.io/Kabila-yetu-ni-Kenya/"
+            target="_blank"
+            class="project-btn">
+                Explore Movement
+            </a>
+
+        </div>
+
+        <div class="project-card">
+
             <h3>EcoHub</h3>
 
             <p>
-                A digital platform for environmental action, engineering services
-                focused on sustainability through waste management, recycling, and innovation.
+                A digital platform focused on environmental action,
+                engineering services, waste management & recycling practices.
             </p>
 
             <a href="https://ecoclub254-alt.github.io/EcoHub/index.html"
@@ -583,32 +652,14 @@ footer{
 
             <p>
                 A youth and child wellness initiative
-                promoting awareness around mental health,
-                community responsibility, and social growth.
+                championing mental health awareness,
+                social responsibility, and community growth.
             </p>
 
             <a href="https://ecoclub254-alt.github.io/EcoHub/mtoto%20ni%20jamii/index.html"
             target="_blank"
             class="project-btn">
                 Explore Initiative
-            </a>
-
-        </div>
-
-        <div class="project-card">
-
-            <h3>Personal Portfolio</h3>
-
-            <p>
-                A showcase of strategic communication,
-                environmental innovation, systems development,
-                and community-focused digital solutions.
-            </p>
-
-            <a href="https://ecoclub254-alt.github.io/EcoHub/Evans.html"
-            target="_blank"
-            class="project-btn">
-                View Portfolio
             </a>
 
         </div>
@@ -631,21 +682,19 @@ footer{
 
     <div class="video-container">
 
-    <iframe
-        width="100%"
-        height="560"
-        src="https://www.youtube.com/embed/1nK01m87lf8"
-        title="Resh Vision Video"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen>
-    </iframe>
+        <iframe
+            src="https://www.youtube.com/embed/1nK01m87lf8"
+            title="Resh Vision Video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+        </iframe>
 
-</div>
+    </div>
+
 </section>
 
 <!-- SOCIALS -->
-<section class="socials">
+<section class="socials" id="socials">
 
     <h2 class="section-title">
         Connect With Resh
